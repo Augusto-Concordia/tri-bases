@@ -1,18 +1,13 @@
 (ns app
-  (:require [menu])
-  (:require [db]))
+  (:require menu db))
 
-(print "" "
-*** Sales Menu ***
+(def custDb (db/load-and-parse "c" "cust.txt"))
 
-1. Display Customer Table
-2. Display Product Table
-3. Display Sales Table
-4. Total Sales for Customer
-5. Total Count for Product
-6. Exit
-            
-Please enter an option?" "")
+(menu/customer-table custDb)
 
-(def choice (read))
-(println choice)
+(def choice (menu/select))
+
+(while (not (= choice 6))
+  (def choice (menu/select)))
+
+(menu/bye)
