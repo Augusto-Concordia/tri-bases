@@ -10,3 +10,5 @@ maven-classpath
 maven-classpath.properties
 .idea/
 *.iml
+*.basis
+*.cpcache
